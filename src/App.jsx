@@ -1,33 +1,34 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+//import reactLogo from './assets/react.svg'
+//import viteLogo from '/vite.svg'
 import './App.css'
+
+import Card from './components/card'
+const cartas = [{title: "Mi carte", subtitle: "Subtitulo de mi carta", text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio nulla quidem perspiciatis inventore? Non nulla mollitia, nihil accusamus culpa sunt itaque tenetur et omnis nesciunt repudiandae rerum ipsum dignissimos laudantium!'},
+{key: '11s', title: "Mi carte", subtitle: "Subtitulo de mi carta", text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio nulla quidem perspiciatis inventore? Non nulla mollitia, nihil accusamus culpa sunt itaque tenetur et omnis nesciunt repudiandae rerum ipsum dignissimos laudantium!'},
+{key: '10s', title: "Mi carte", subtitle: "Subtitulo de mi carta", text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio nulla quidem perspiciatis inventore? Non nulla mollitia, nihil accusamus culpa sunt itaque tenetur et omnis nesciunt repudiandae rerum ipsum dignissimos laudantium!'},
+{key: '19s', title: "Mi carte", subtitle: "Subtitulo de mi carta", text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio nulla quidem perspiciatis inventore? Non nulla mollitia, nihil accusamus culpa sunt itaque tenetur et omnis nesciunt repudiandae rerum ipsum dignissimos laudantium!'},
+{key: '18s', title: "Mi carte", subtitle: "Subtitulo de mi carta", text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio nulla quidem perspiciatis inventore? Non nulla mollitia, nihil accusamus culpa sunt itaque tenetur et omnis nesciunt repudiandae rerum ipsum dignissimos laudantium!'},
+{key: '17s', title: "Mi carte", subtitle: "Subtitulo de mi carta", text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio nulla quidem perspiciatis inventore? Non nulla mollitia, nihil accusamus culpa sunt itaque tenetur et omnis nesciunt repudiandae rerum ipsum dignissimos laudantium!'},
+{key: '16s', title: "Mi carte", subtitle: "Subtitulo de mi carta", text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio nulla quidem perspiciatis inventore? Non nulla mollitia, nihil accusamus culpa sunt itaque tenetur et omnis nesciunt repudiandae rerum ipsum dignissimos laudantium!'},
+{key: '15s', title: "Mi carte", subtitle: "Subtitulo de mi carta", text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio nulla quidem perspiciatis inventore? Non nulla mollitia, nihil accusamus culpa sunt itaque tenetur et omnis nesciunt repudiandae rerum ipsum dignissimos laudantium!'}
+]
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
       <h1>Vite + React</h1>
-      <div className="card">
+      <div>
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div className='flex-box'>
+      {cartas.map((carta) => <Card key={carta.key} title={carta.title} subtitle={carta.subtitle} text={carta.text}/>)}
+      </div>
     </>
   )
 }
