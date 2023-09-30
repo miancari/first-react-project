@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 //import reactLogo from './assets/react.svg'
 //import viteLogo from '/vite.svg'
 import './App.css'
 
-import Card from './components/card'
+import Cards from './components/Cards'
+
 const cartas = [{title: "Mi carte", subtitle: "Subtitulo de mi carta", text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio nulla quidem perspiciatis inventore? Non nulla mollitia, nihil accusamus culpa sunt itaque tenetur et omnis nesciunt repudiandae rerum ipsum dignissimos laudantium!'},
 {key: '11s', title: "Mi carte", subtitle: "Subtitulo de mi carta", text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio nulla quidem perspiciatis inventore? Non nulla mollitia, nihil accusamus culpa sunt itaque tenetur et omnis nesciunt repudiandae rerum ipsum dignissimos laudantium!'},
 {key: '10s', title: "Mi carte", subtitle: "Subtitulo de mi carta", text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio nulla quidem perspiciatis inventore? Non nulla mollitia, nihil accusamus culpa sunt itaque tenetur et omnis nesciunt repudiandae rerum ipsum dignissimos laudantium!'},
@@ -15,19 +16,19 @@ const cartas = [{title: "Mi carte", subtitle: "Subtitulo de mi carta", text: 'Lo
 ]
 
 function App() {
-  const [count, setCount] = useState(0)
 
+  useEffect(() => {
+    console.log('Me ejecute')
+    //pedir los datos de las cartas
+    if(!cartas) setcartas([resulatadDeLaPeticion])
+
+  }, [textBuscador])
+  
   return (
     <>
       <h1>Vite + React</h1>
-      <div>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        
-      </div>
       <div className='flex-box'>
-      {cartas.map((carta) => <Card key={carta.key} title={carta.title} subtitle={carta.subtitle} text={carta.text}/>)}
+        <Cards title={'Mis cartas'} cartasInfo={cartas}/>
       </div>
     </>
   )
